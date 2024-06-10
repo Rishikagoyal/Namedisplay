@@ -9,12 +9,12 @@ const FullName=()=>{
         <h2>Full Name Display</h2>
         <form>
          <label>First Name: </label>
-         <input type="text" onChange={(e)=>{setFirstName(e.target.value)}}required/><br></br>
+         <input type="text" onChange={(e)=>{setFirstName(e.target.value)}} required/><br></br>
          <label>Last Name: </label>
          <input type="text" onChange={(e)=>{setLastName(e.target.value)}} required/><br></br>
-         <button onClick={()=>{setClicked(true)}}>Submit</button>
+         <button onClick={(e)=>{e.preventDefault();setClicked(true)}} >Submit</button>
 
-         {(clicked)&& (firstName!=="" && lastName!=="")?(<><p>Full Name: <span>{firstName+" "+lastName}</span></p></>):(<></>)}
+         {(clicked)&& (firstName!=="" && lastName!=="")?(<><p>Full Name: <span>{firstName+" "+lastName}</span></p></>):(<></>) }
 
         </form>
         
