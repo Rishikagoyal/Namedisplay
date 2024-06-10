@@ -12,7 +12,7 @@ const FullName=()=>{
          <input type="text" onChange={(e)=>{setFirstName(e.target.value)}} required/><br></br>
          <label>Last Name: </label>
          <input type="text" onChange={(e)=>{setLastName(e.target.value)}} required/><br></br>
-         <button onClick={(e)=>{e.preventDefault();setClicked(true)}} type="submit">Submit</button>
+         <button onSubmit={(e)=>{e.preventDefault();setClicked(true)}} type="submit">Submit</button>
 
          {(clicked)&& (firstName!=="" && lastName!=="")?(<><p>Full Name: <span>{firstName+" "+lastName}</span></p></>):(<></>) }
 
