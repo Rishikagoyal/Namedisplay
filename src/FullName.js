@@ -25,9 +25,9 @@ const FullName=()=>{
         <h2>Full Name Display</h2>
         <form onSubmit={showText}>
          <label>First Name: </label>
-         <input type="text" name="firstName" value={firstName} onChange={handleChange} /><br></br>
+         <input type="text" name="firstName" value={firstName} onChange={handleChange} required/><br></br>
          <label>Last Name: </label>
-         <input type="text" name="lastName" value={lastName} onChange={handleChange} /><br></br>
+         <input type="text" name="lastName" value={lastName} onChange={handleChange} required/><br></br>
          <button type="submit">Submit</button>
          
          
