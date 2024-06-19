@@ -3,28 +3,42 @@ import React,{useState} from 'react';
 const FullName=()=>{
     const[firstName,setFirstName]=useState("");
     const[lastName,setLastName]=useState("");
-    const[clicked,setClicked]=useState(false);
-    const handleClick=(e)=>{
+    const[show,setShow]=useState(false);
+    const showText=(e)=>{
         e.preventDefault();
-        setClicked(!clicked);
+        setShow(true);
     }
+
+    const handleChange=(e)=>{
+        if(e.target.name==='firstName')
+            {
+                setFirstName(e.target.value);
+            }
+        else{
+            setLastName(e.target.value);
+        }
+    }
+
     return(
         <>
+        <div>
         <h2>Full Name Display</h2>
-        <form onSubmit={handleClick}>
+        <form onSubmit={showText}>
          <label>First Name: </label>
-         <input type="text" onChange={(e)=>{setFirstName(e.target.value)}} required/><br></br>
+         <input type="text" name="firstName" value={firstName} onChange={handleChange} /><br></br>
          <label>Last Name: </label>
-         <input type="text" onChange={(e)=>{setLastName(e.target.value)}} required/><br></br>
-         <button>Submit</button>
+         <input type="text" name="lastName" value={lastName} onChange={handleChange} /><br></br>
+         <button type="submit">Submit</button>
          
-         {(clicked)&& (firstName!=="" && lastName!=="")?(<><p>Full Name: <span>{firstName+" "+lastName}</span></p></>):(<></>) }
+         
 
         </form>
+        {show && (<p>Full Name: {firstName} {lastName}</p>)}
+        </div>
+       
         
         </>
     )
 }
 export default FullName;
 
-//{(clicked)&& (firstName!=="" && lastName!=="")?(<><p>Full Name: <span>{firstName+" "+lastName}</span></p></>):(<></>) }
